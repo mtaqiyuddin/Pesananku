@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#F0DF10">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Pesananku"
+        android:textSize="50dp"
+        android:textColor="#333333"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:gravity="center"
+        android:singleLine="true"
+        android:id="@+id/eUsername"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:hint="Username"
+        android:textSize="15dp" />
+
+    <EditText
+        android:gravity="center"
+        android:singleLine="true"
+        android:id="@+id/ePassword"
+        android:layout_marginTop="230dp"
+        android:background="@drawable/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:hint="Password"
+        android:textSize="15dp"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/bLogin"
+        android:layout_marginTop="270dp"
+        android:text="LOGIN"
+        android:background="@drawable/button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/tLogin"
+        android:layout_marginTop="310dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textSize="10dp"
+        android:textColor="#444444"
+        android:textAlignment="center"
+        android:text="Untuk mendaftar, pilih ini"/>
+
+
+</RelativeLayout>
