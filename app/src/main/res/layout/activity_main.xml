@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    android:background="#F0E140">
+
+
+        <ListView
+            android:layout_marginTop="40dp"
+            android:scrollbars="vertical"
+            android:background="#F0B738"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:id="@+id/list"/>
+    
+
+    <Button
+        android:id="@+id/bLogout"
+        android:layout_marginTop="460dp"
+        android:onClick="iMain"
+        android:text="LOGOUT"
+        android:background="@drawable/button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+</RelativeLayout>
