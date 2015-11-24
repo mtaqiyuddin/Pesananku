@@ -1,37 +1,36 @@
 package tiga.pesananku;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.app.AlertDialog;
+import android.util.Log;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.math.BigInteger;
+import java.util.HashMap;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
+    public static final String USER_NAME = "USERNAME";
+    public static final String PASSWORD = "PASSWORD";
+    private static final String LOGIN_URL = "http://pesananku.16mb.com/login.php";
+
+    private EditText username, password;
     Button button;
-    EditText username, password;
     TextView register;
 
     @Override
@@ -52,17 +51,59 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bLogin:
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                } else
-                    showErrorMessage();
+                login();
                 break;
             case R.id.tLogin:
                 Intent intent = new Intent(this, Register.class);
                 startActivity(intent);
                 break;
         }
+    }
+
+    public void login() {
+        String Username = username.getText().toString();
+        String Password = password.getText().toString();
+        finalLogin(Username,Password);
+    }
+
+    private void finalLogin (final String Username, final String Password) {
+        class LoginAsync extends AsyncTask<String, Void, String> {
+            private Dialog loadingDialog;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loadingDialog = ProgressDialog.show(Login.this, "Please wait",null,true,true);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loadingDialog.dismiss();
+                if (s.trim().equalsIgnoreCase("success")) {
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    finish();
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), s.trim(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                HashMap<String,String> data = new HashMap<>();
+                data.put("username",params[0]);
+                data.put("password",params[1]);
+
+                RegisterUserClass ruc = new RegisterUserClass();
+
+                String result = ruc.sendPostRequest(LOGIN_URL, data);
+
+                return result;
+            }
+        }
+        LoginAsync la = new LoginAsync();
+        la.execute(Username, Password);
     }
 
     private void showErrorMessage() {
@@ -72,9 +113,4 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         dialogBuilder.show();
     }
 
-    public void md5() throws Exception {
-        MessageDigest m = MessageDigest.getInstance("MD5");
-        m.update(password.getText().toString().getBytes(),0,password.length());
-        System.out.println(new BigInteger(1,m.digest()).toString(16));
-    }
 }
