@@ -48,10 +48,11 @@
 
     <TextView
         android:id="@+id/tLogin"
+        android:textStyle="bold"
         android:layout_marginTop="310dp"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:textColor="#444444"
         android:textAlignment="center"
         android:text="Untuk mendaftar, pilih ini"/>
