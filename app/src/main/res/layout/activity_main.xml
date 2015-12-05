@@ -6,15 +6,13 @@
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:background="#F0E140">
 
-
-        <ListView
-            android:layout_marginTop="40dp"
-            android:scrollbars="vertical"
-            android:background="#F0B738"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:id="@+id/list"/>
-    
+    <ListView
+        android:foregroundGravity="center"
+        android:scrollbars="vertical"
+        android:background="#F0B738"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"/>
 
     <Button
         android:id="@+id/bLogout"
