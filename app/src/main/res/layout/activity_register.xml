@@ -1,72 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    android:background="#F0E140" tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_register"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Pesananku"
-        android:textSize="50dp"
-        android:textColor="#333333"
-        android:layout_marginTop="50dp"
-        android:textAlignment="center"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
 
-    <EditText
-        android:gravity="center"
-        android:id="@+id/eUsername2"
-        android:singleLine="true"
-        android:layout_marginTop="190dp"
-        android:background="@drawable/edittext"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="Username"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/npm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/input_register_bg"
+            android:hint="@string/hint_NPM"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint" />
 
-    <EditText
-        android:gravity="center"
-        android:inputType="textPassword"
-        android:id="@+id/ePassword2"
-        android:singleLine="true"
-        android:layout_marginTop="230dp"
-        android:background="@drawable/edittext"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="Password"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/input_register_bg"
+            android:hint="@string/hint_name"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint" />
 
-    <EditText
-        android:gravity="center"
-        android:singleLine="true"
-        android:id="@+id/eNPM"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/edittext"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="NPM"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/input_register_bg"
+            android:hint="@string/hint_username"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint" />
 
-    <EditText
-        android:gravity="center"
-        android:layout_marginTop="310dp"
-        android:singleLine="true"
-        android:id="@+id/eNama"
-        android:background="@drawable/edittext"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="Nama"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/input_register_bg"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint" />
 
-    <Button
-        android:id="@+id/bRegister"
-        android:layout_marginTop="350dp"
-        android:text="REGISTER"
-        android:background="@drawable/button"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        <!-- Login Button -->
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="#ea4c88"
+            android:text="@string/btn_register"
+            android:textColor="@color/white" />
+
+        <!-- Link to Login Screen -->
+
+        <Button
+            android:id="@+id/btnLinkToLoginScreen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@null"
+            android:text="@string/btn_link_to_login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+</LinearLayout>
